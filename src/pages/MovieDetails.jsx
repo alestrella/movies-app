@@ -1,7 +1,8 @@
 import { Link, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { useFetchMovie } from 'hooks/useFetchMovie';
-
-const URL_IMG = 'https://image.tmdb.org/t/p/w500';
+import { IMG_URL } from 'services/moviesApi';
+import { SubHeading, Text, Title } from 'components/Text/Text.styled';
+import Box from 'components/Box';
 
 const MovieDetails = () => {
   const movie = useFetchMovie();
@@ -19,20 +20,23 @@ const MovieDetails = () => {
             Go back
           </button>
           <section>
-            <div>
+            <Box display="flex">
               <img
-                src={`${URL_IMG}${movie.backdrop_path}`}
+                src={`${IMG_URL}${movie.poster_path}`}
                 alt="Movie poster"
+                width="350px"
               />
-              <h1>{movie.title}</h1>
-              <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
-              <h2>Overview</h2>
-              <p>{movie.overview}</p>
-              <h3>Genres</h3>
-              <p>{movie.genres[0].name}</p>
-            </div>
+              <div>
+                <Title>{movie.title}</Title>
+                <Text>User Score: {Math.round(movie.vote_average * 10)}%</Text>
+                <SubHeading>Overview</SubHeading>
+                <Text>{movie.overview}</Text>
+                <SubHeading>Genres</SubHeading>
+                <Text>{movie.genres[0].name}</Text>
+              </div>
+            </Box>
             <div>
-              <h3>Additional information</h3>
+              <SubHeading>Additional information</SubHeading>
               <ul>
                 <li>
                   <Link to="cast">Cast</Link>

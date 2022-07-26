@@ -8,7 +8,7 @@ export const useFetchMovie = () => {
 
   useEffect(() => {
     fetchMovieById(movieId).then(setMovie);
-  }, [movieId, setMovie]);
+  }, [movieId]);
 
   return movie;
 };

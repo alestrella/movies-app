@@ -1,18 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import Box from 'components/Box';
+import { Header, Link, Logo } from './AppBar.styled';
 
 export const AppBar = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Header>
+      <Logo>MoviesApp</Logo>
+      <Box as="nav">
+        <Box display="flex" as="ul">
+          <Box mr={4} as="li">
+            <Link to="/">Home</Link>
+          </Box>
+          <Box as="li">
+            <Link to="/movies">Movies</Link>
+          </Box>
+        </Box>
+      </Box>
+    </Header>
   );
 };
