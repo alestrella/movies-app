@@ -21,6 +21,7 @@ export const Link = styled(NavLink)`
   padding: ${p => p.theme.space[3]}px ${p => p.theme.space[4]}px;
   text-decoration: none;
   color: ${p => p.theme.colors.text};
+  border-bottom: ${p => p.theme.borders.normal} ${p => p.theme.colors.bgBtn};
 
   &.active {
     color: ${p => p.theme.colors.white};
