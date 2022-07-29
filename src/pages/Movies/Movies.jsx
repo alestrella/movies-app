@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { searchMovies } from 'services/moviesApi';
 import Box from 'components/Box';
 import MovieList from 'components/MovieList/MovieList';
@@ -9,6 +9,7 @@ import SearchBox from 'components/SearchBox/SearchBox';
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   const handleSearch = e => {
     e.preventDefault();
@@ -31,7 +32,9 @@ const Movies = () => {
         <Title>Movies</Title>
         <div>
           <SearchBox onSubmit={handleSearch} />
-          {movies.length > 0 && <MovieList movies={movies} />}
+          {movies.length > 0 && (
+            <MovieList movies={movies} state={{ from: location }} />
+          )}
         </div>
       </Box>
     </main>

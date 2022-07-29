@@ -10,7 +10,7 @@ import {
   Title,
 } from 'components/Text/Text.styled';
 import Box from 'components/Box';
-import { BackBtn, Link } from './MovieDetails.styled';
+import { BackBtn, AddLink } from './MovieDetails.styled';
 import { FiArrowLeft } from 'react-icons/fi';
 
 const MovieDetails = () => {
@@ -19,6 +19,8 @@ const MovieDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const date = new Date();
+
+  console.log(location);
 
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
@@ -83,14 +85,14 @@ const MovieDetails = () => {
               <SubHeading>Additional information</SubHeading>
               <Box display="flex" as="ul">
                 <Box mr={4} as="li">
-                  <Link to="cast" state={{ from: location.state.from }}>
+                  <AddLink to="cast" state={{ from: location.state.from }}>
                     Cast
-                  </Link>
+                  </AddLink>
                 </Box>
                 <Box as="li">
-                  <Link to="reviews" state={{ from: location.state.from }}>
+                  <AddLink to="reviews" state={{ from: location.state.from }}>
                     Reviews
-                  </Link>
+                  </AddLink>
                 </Box>
               </Box>
             </Box>

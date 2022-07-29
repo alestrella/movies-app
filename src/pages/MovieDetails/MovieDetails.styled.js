@@ -16,7 +16,7 @@ export const BackBtn = styled.button`
   }
 `;
 
-export const Link = styled(NavLink)`
+export const AddLink = styled(NavLink)`
   display: inline-block;
   padding: ${p => p.theme.space[3]}px ${p => p.theme.space[4]}px;
   text-decoration: none;
