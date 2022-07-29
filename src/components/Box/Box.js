@@ -6,10 +6,10 @@ import {
   flexbox,
   grid,
   background,
-  border,
   position,
   typography,
   shadow,
+  border,
 } from 'styled-system';
 
 const Box = styled('div')(
@@ -19,10 +19,10 @@ const Box = styled('div')(
   flexbox,
   grid,
   background,
-  border,
   position,
   typography,
-  shadow
+  shadow,
+  border
 );
 
 export default Box;

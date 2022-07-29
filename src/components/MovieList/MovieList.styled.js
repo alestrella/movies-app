@@ -16,10 +16,10 @@ export const CardLink = styled(Link)`
   display: block;
   height: 100%;
 
-  :hover ${Poster} {
+  :hover ${Poster}, :focus-visible ${Poster} {
     box-shadow: 0px 10px 5px 0px rgba(251, 197, 0, 0.2);
   }
-  :hover ${CardTitle} {
+  :hover ${CardTitle}, :focus-visible ${CardTitle} {
     color: ${p => p.theme.colors.accent};
   }
 `;

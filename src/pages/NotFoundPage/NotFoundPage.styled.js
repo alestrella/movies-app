@@ -10,3 +10,8 @@ export const Button = styled(Link)`
   font-weight: ${p => p.theme.fontWeights.bold};
   background-color: ${p => p.theme.colors.accent};
 `;
+
+export const Pic = styled.img`
+  margin: 0 auto;
+  max-width: 300px;
+`;

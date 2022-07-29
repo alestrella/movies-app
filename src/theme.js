@@ -8,7 +8,6 @@ export const theme = {
     bgInput: '#181f28',
     hoverBtn: '#5b5f67',
     accent: '#fbc500',
-    // muted: '#f6f6f6',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {

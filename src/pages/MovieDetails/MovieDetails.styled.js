@@ -1,21 +1,19 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-export const Header = styled.header`
+export const BackBtn = styled.button`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: ${p => p.theme.space[5]}px;
-  padding: ${p => p.theme.space[4]}px 0;
-  gap: 12px;
-  border-bottom: ${p => p.theme.borders.normal} ${p => p.theme.colors.hoverBtn}; ;
-`;
+  padding: ${p => p.theme.space[3]}px;
+  color: #000;
+  font-weight: ${p => p.theme.fontWeights.bold};
+  background-color: ${p => p.theme.colors.hoverBtn};
+  border: ${p => p.theme.borders.normal} transparent;
 
-export const Logo = styled.p`
-  font-family: ${p => p.theme.fonts.heading};
-  font-size: ${p => p.theme.fontSizes.xl};
-  font-weight: ${p => p.theme.fontWeights.slim};
-  color: ${p => p.theme.colors.accent};
+  :hover,
+  :focus-visible {
+    background-color: ${p => p.theme.colors.accent};
+  }
 `;
 
 export const Link = styled(NavLink)`
