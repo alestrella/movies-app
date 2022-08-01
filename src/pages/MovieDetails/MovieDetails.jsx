@@ -24,7 +24,6 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const date = new Date();
 
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
@@ -62,7 +61,7 @@ const MovieDetails = () => {
               />
               <Box px={6}>
                 <Heading>
-                  {title} •<Span> {date.getUTCFullYear(release_date)}</Span>
+                  {title} •<Span> {release_date.substr(0, 4)}</Span>
                 </Heading>
                 <Box py={4}>
                   <Text>

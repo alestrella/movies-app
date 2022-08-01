@@ -7,7 +7,6 @@ import noPoster from '../../images/noposter.jpg';
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
-  const date = new Date();
 
   return (
     <Box
@@ -26,7 +25,7 @@ const MovieList = ({ movies }) => {
                   alt="Poster"
                 />
                 <CardTitle>
-                  {title} • <span>{date.getUTCFullYear(relDate)}</span>
+                  {title} • <span>{relDate.substr(0, 4)}</span>
                 </CardTitle>
               </CardLink>
             </Box>
