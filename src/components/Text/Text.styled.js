@@ -37,7 +37,7 @@ export const Span = styled.span`
 `;
 
 export const Author = styled.p`
-  margin-bottom: ${p => p.theme.space[1]}px;
+  margin-bottom: ${p => p.theme.space[2]}px;
   font-size: ${p => p.theme.fontSizes.m};
   color: ${p => p.theme.colors.subheading};
   font-weight: ${p => p.theme.fontWeights.bold};

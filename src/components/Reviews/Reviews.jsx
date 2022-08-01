@@ -3,6 +3,7 @@ import { Author, Text } from 'components/Text/Text.styled';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/moviesApi';
+import { Review } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -20,10 +21,10 @@ const Reviews = () => {
         <Box as="ul">
           {reviews.map(({ id, author, content }) => {
             return (
-              <Box mb={4} as="li" key={id}>
+              <Review key={id}>
                 <Author>Autor: {author}</Author>
                 <Text>{content}</Text>
-              </Box>
+              </Review>
             );
           })}
         </Box>

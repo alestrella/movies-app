@@ -17,7 +17,9 @@ export const BackBtn = styled.button`
 `;
 
 export const AddLink = styled(NavLink)`
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: ${p => p.theme.space[3]}px ${p => p.theme.space[4]}px;
   text-decoration: none;
   color: ${p => p.theme.colors.text};

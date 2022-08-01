@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect, Suspense } from 'react';
-import { useParams, useLocation, useNavigate, Outlet } from 'react-router-dom';
+import {
+  useParams,
+  useLocation,
+  useNavigate,
+  Outlet,
+  Navigate,
+} from 'react-router-dom';
 import { IMG_URL, fetchMovie } from 'services/moviesApi';
 import {
   Heading,
@@ -11,23 +17,24 @@ import {
 } from 'components/Text/Text.styled';
 import Box from 'components/Box';
 import { BackBtn, AddLink } from './MovieDetails.styled';
-import { FiArrowLeft } from 'react-icons/fi';
+import { MdArrowBack, MdPeopleAlt, MdOutlineRateReview } from 'react-icons/md';
 
 const MovieDetails = () => {
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState();
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const date = new Date();
 
-  console.log(location);
-
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
   }, [movieId]);
 
-  if (!movie) {
+  if (movie === undefined) {
     return;
+  }
+  if (movie === null) {
+    return <Navigate to="/not-found" replace={true} />;
   }
 
   const { title, poster_path, release_date, vote_average, overview, genres } =
@@ -44,7 +51,7 @@ const MovieDetails = () => {
               type="button"
               onClick={() => navigate(location?.state?.from ?? '/')}
             >
-              <FiArrowLeft />
+              <MdArrowBack />
               Go back
             </BackBtn>
             <Box display="flex" py={4}>
@@ -85,13 +92,13 @@ const MovieDetails = () => {
               <SubHeading>Additional information</SubHeading>
               <Box display="flex" as="ul">
                 <Box mr={4} as="li">
-                  <AddLink to="cast" state={{ from: location.state.from }}>
-                    Cast
+                  <AddLink to="cast" state={{ from: location.state?.from }}>
+                    <MdPeopleAlt /> Cast
                   </AddLink>
                 </Box>
                 <Box as="li">
-                  <AddLink to="reviews" state={{ from: location.state.from }}>
-                    Reviews
+                  <AddLink to="reviews" state={{ from: location.state?.from }}>
+                    <MdOutlineRateReview /> Reviews
                   </AddLink>
                 </Box>
               </Box>

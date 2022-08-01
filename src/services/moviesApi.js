@@ -25,6 +25,7 @@ export async function fetchMovie(id) {
     return data;
   } catch (error) {
     console.log('Error', error.message);
+    return null;
   }
 }
 
