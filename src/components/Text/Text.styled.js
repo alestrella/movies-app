@@ -21,6 +21,7 @@ export const Heading = styled.h2`
 `;
 
 export const SubHeading = styled.h3`
+  margin-bottom: ${p => p.theme.space[3]}px;
   font-size: ${p => p.theme.fontSizes.m};
   color: ${p => p.theme.colors.subheading};
   text-transform: uppercase;

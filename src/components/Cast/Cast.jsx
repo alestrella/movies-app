@@ -30,11 +30,10 @@ const Cast = () => {
             .slice(0, 20)
             .map(({ id, name, profile_path: profileImg, character }) => {
               return (
-                <Box mb={4} width={150} as="li" key={id}>
+                <Box mb={4} width={150} textAlign="center" as="li" key={id}>
                   <img
                     src={profileImg ? `${IMG_URL + profileImg}` : noAvatar}
                     alt={name}
-                    width={100}
                   />
                   <Author>{name}</Author>
                   <Text>Character: {character}</Text>

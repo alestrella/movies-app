@@ -16,7 +16,7 @@ import {
   Title,
 } from 'components/Text/Text.styled';
 import Box from 'components/Box';
-import { BackBtn, AddLink } from './MovieDetails.styled';
+import { BackBtn, AddLink, FullPoster } from './MovieDetails.styled';
 import { MdArrowBack, MdPeopleAlt, MdOutlineRateReview } from 'react-icons/md';
 
 const MovieDetails = () => {
@@ -54,11 +54,7 @@ const MovieDetails = () => {
               Go back
             </BackBtn>
             <Box display="flex" py={4}>
-              <img
-                src={`${IMG_URL}${poster_path}`}
-                alt="Movie poster"
-                width="350px"
-              />
+              <FullPoster src={`${IMG_URL}${poster_path}`} alt="Movie poster" />
               <Box px={6}>
                 <Heading>
                   {title} •<Span> {release_date.substr(0, 4)}</Span>
