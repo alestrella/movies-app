@@ -17,11 +17,9 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetchMovieByGenre(selectedGenre.join(',')).then(setVisibleMovies);
-
-    if (selectedGenre.length !== 0) {
-      const genre = searchParams.get('genre');
-      setSearchParams({ genre: selectedGenre });
+    const genre = searchParams.get('genre');
+    if (genre) {
+      fetchMovieByGenre(selectedGenre.join(',')).then(setVisibleMovies);
     }
 
     console.log('selectedGenre :>> ', selectedGenre);
@@ -29,6 +27,7 @@ const Home = () => {
 
   const handleSelectedGenre = ({ name }) => {
     setSelectedGenre(selectedGenre => [...selectedGenre, name]);
+    setSearchParams({ genre: selectedGenre });
   };
 
   return (
