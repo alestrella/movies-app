@@ -16,7 +16,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   padding: ${p => p.theme.space[3]}px;
-  color: #000;
+  color: ${p => p.theme.colors.black};
   font-weight: ${p => p.theme.fontWeights.bold};
   background-color: ${p => p.theme.colors.hoverBtn};
   border: ${p => p.theme.borders.normal} transparent;

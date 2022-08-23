@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { IMG_URL } from 'services/moviesApi';
 import Box from 'components/Box';
-import { CardLink, CardTitle, Poster } from './MovieList.styled';
+import { CardLink, CardTitle, Poster, Vote } from './MovieList.styled';
 import noPoster from '../../images/noposter.jpg';
 
 const MovieList = ({ movies }) => {
@@ -11,12 +11,18 @@ const MovieList = ({ movies }) => {
   return (
     <Box
       display="grid"
-      gridGap={16}
+      gridGap={20}
       gridTemplateColumns="repeat(auto-fit, 200px)"
       as="ul"
     >
       {movies.map(
-        ({ id, title, poster_path: poster, release_date: relDate }) => {
+        ({
+          id,
+          title,
+          poster_path: poster,
+          release_date: relDate,
+          vote_average: vote,
+        }) => {
           return (
             <Box as="li" key={id}>
               <CardLink to={`/movies/${id}`} state={{ from: location }}>
@@ -24,9 +30,12 @@ const MovieList = ({ movies }) => {
                   src={poster ? `${IMG_URL}${poster}` : `${noPoster}`}
                   alt="Poster"
                 />
-                <CardTitle>
-                  {title} • <span>{relDate.substr(0, 4)}</span>
-                </CardTitle>
+                <Box display="grid" gridTemplateColumns="1fr 20%">
+                  <CardTitle>
+                    {title} • <span>{relDate.substr(0, 4)}</span>
+                  </CardTitle>
+                  <Vote>{vote.toFixed(1)}</Vote>
+                </Box>
               </CardLink>
             </Box>
           );

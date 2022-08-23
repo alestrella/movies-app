@@ -23,3 +23,13 @@ export const CardLink = styled(Link)`
     color: ${p => p.theme.colors.accent};
   }
 `;
+
+export const Vote = styled.p`
+  height: fit-content;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.s};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  color: ${p => p.theme.colors.accent};
+  background-color: ${p => p.theme.colors.bgBtn};
+  border-radius: ${p => p.theme.radii.normal};
+`;

@@ -61,3 +61,24 @@ export async function searchMovies(query) {
     console.log('Error', error.message);
   }
 }
+
+export async function fetchGenres() {
+  try {
+    const { data } = await axios.get('genre/movie/list', config);
+    return data.genres;
+  } catch (error) {
+    console.log('Error', error.message);
+  }
+}
+
+export async function fetchMovieByGenre(genre) {
+  try {
+    const { data } = await axios.get(
+      `discover/movie?with_genres=${genre}`,
+      config
+    );
+    return data.results;
+  } catch (error) {
+    console.log('Error', error.message);
+  }
+}

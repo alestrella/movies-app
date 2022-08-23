@@ -9,6 +9,7 @@ export const BackBtn = styled.button`
   font-weight: ${p => p.theme.fontWeights.bold};
   background-color: ${p => p.theme.colors.hoverBtn};
   border: ${p => p.theme.borders.normal} transparent;
+  border-radius: ${p => p.theme.radii.normal};
 
   :hover,
   :focus-visible {
