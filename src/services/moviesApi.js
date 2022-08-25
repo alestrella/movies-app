@@ -29,6 +29,15 @@ export async function fetchMovie(id) {
   }
 }
 
+export async function fetchMovieVideo(id) {
+  try {
+    const { data } = await axios.get(`movie/${id}/videos`, config);
+    return data;
+  } catch (error) {
+    console.log('Error', error.message);
+  }
+}
+
 export async function fetchMovieCast(id) {
   try {
     const { data } = await axios.get(`movie/${id}/credits`, config);
@@ -71,10 +80,10 @@ export async function fetchGenres() {
   }
 }
 
-export async function fetchMovieByGenre(genre) {
+export async function fetchMovieByGenre(id) {
   try {
     const { data } = await axios.get(
-      `discover/movie?with_genres=${genre}`,
+      `discover/movie?with_genres=${id}`,
       config
     );
     return data.results;

@@ -7,6 +7,7 @@ import { SubHeading } from 'components/Text/Text.styled';
 
 const GenresFilter = ({ active, onClick }) => {
   const [genres, setGenres] = useState(null);
+  const genreName = active.map(({ name }) => name);
 
   useEffect(() => {
     fetchGenres().then(setGenres);
@@ -25,7 +26,7 @@ const GenresFilter = ({ active, onClick }) => {
         as="ul"
       >
         {genres?.map(genre => {
-          const currentGenre = active.includes(genre.name);
+          const currentGenre = genreName.includes(genre.name);
           return (
             <Box m={2} as="li" key={genre.id}>
               <Button
@@ -46,6 +47,11 @@ const GenresFilter = ({ active, onClick }) => {
 export default GenresFilter;
 
 GenresFilter.propTypes = {
-  active: PropTypes.array,
+  // active: PropTypes.array({
+  //   genre: PropTypes.object({
+  //     id: PropTypes.string,
+  //     name: PropTypes.string,
+  //   }),
+  // }).isRequired,
   onClick: PropTypes.func.isRequired,
 };

@@ -59,6 +59,7 @@ const MovieDetails = () => {
                 <Heading>
                   {title} •<Span> {release_date.substr(0, 4)}</Span>
                 </Heading>
+
                 <Box py={4}>
                   <Text>
                     User Score: <Span>{Math.round(vote_average * 10)}%</Span>
