@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from 'react-router-dom';
-import { IMG_URL, fetchMovie } from 'services/moviesApi';
+import { IMG_URL, fetchMovie, fetchMovieVideo } from 'services/moviesApi';
 import {
   Heading,
   Span,
@@ -16,17 +16,37 @@ import {
   Title,
 } from 'components/Text/Text.styled';
 import Box from 'components/Box';
-import { BackBtn, AddLink, FullPoster } from './MovieDetails.styled';
-import { MdArrowBack, MdPeopleAlt, MdOutlineRateReview } from 'react-icons/md';
+import {
+  BackBtn,
+  AddLink,
+  FullPoster,
+  TrailerBtn,
+} from './MovieDetails.styled';
+import {
+  MdArrowBack,
+  MdPeopleAlt,
+  MdOutlineRateReview,
+  MdOutlineSmartDisplay,
+} from 'react-icons/md';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState();
+  const [trailer, setTrailer] = useState(null);
+
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
+    fetchMovieVideo(movieId).then(videos =>
+      videos.forEach(v => {
+        if (v.type === 'Trailer') {
+          const trailerLink = `https://www.youtube.com/watch?v=${v.key}`;
+          setTrailer(trailerLink);
+        }
+      })
+    );
   }, [movieId]);
 
   if (movie === undefined) {
@@ -59,6 +79,15 @@ const MovieDetails = () => {
                 <Heading>
                   {title} •<Span> {release_date.substr(0, 4)}</Span>
                 </Heading>
+
+                <TrailerBtn
+                  href={trailer}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <MdOutlineSmartDisplay />
+                  Trailer
+                </TrailerBtn>
 
                 <Box py={4}>
                   <Text>

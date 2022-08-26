@@ -5,7 +5,7 @@ export const BackBtn = styled.button`
   display: flex;
   align-items: center;
   padding: ${p => p.theme.space[3]}px;
-  color: #000;
+  color: ${p => p.theme.colors.black};
   font-weight: ${p => p.theme.fontWeights.bold};
   background-color: ${p => p.theme.colors.hoverBtn};
   border: ${p => p.theme.borders.normal} transparent;
@@ -43,4 +43,23 @@ export const AddLink = styled(NavLink)`
 export const FullPoster = styled.img`
   width: 350px;
   border-radius: ${p => p.theme.radii.normal};
+`;
+
+export const TrailerBtn = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: ${p => p.theme.space[3]}px;
+  width: 100px;
+  text-decoration: none;
+  color: ${p => p.theme.colors.text};
+  border-radius: ${p => p.theme.radii.normal};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  background-color: ${p => p.theme.colors.bgBtn};
+
+  :hover,
+  :focus-visible {
+    color: ${p => p.theme.colors.black};
+    background-color: ${p => p.theme.colors.hoverBtn};
+  }
 `;

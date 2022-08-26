@@ -32,7 +32,7 @@ export async function fetchMovie(id) {
 export async function fetchMovieVideo(id) {
   try {
     const { data } = await axios.get(`movie/${id}/videos`, config);
-    return data;
+    return data.results;
   } catch (error) {
     console.log('Error', error.message);
   }
