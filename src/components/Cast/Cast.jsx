@@ -23,7 +23,7 @@ const Cast = () => {
         <Box
           display="grid"
           gridGap={16}
-          gridTemplateColumns="repeat(auto-fit, 200px)"
+          gridTemplateColumns="repeat(auto-fit, 180px)"
           as="ul"
         >
           {cast

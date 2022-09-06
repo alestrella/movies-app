@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Box from 'components/Box';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchGenres } from 'services/moviesApi';
 import { Button } from './GenresFilter.styled';
 import { SubHeading } from 'components/Text/Text.styled';
@@ -14,7 +14,7 @@ const GenresFilter = ({ active, onClick }) => {
   }, []);
 
   return (
-    <Box pb={4} px={3} textAlign="center">
+    <Box m="0 auto" pb={4} px={3} textAlign="center">
       <SubHeading>What are you in the mood for?</SubHeading>
 
       <Box
@@ -23,6 +23,7 @@ const GenresFilter = ({ active, onClick }) => {
         justifyContent="center"
         alignItems="center"
         mb={5}
+        maxWidth="830px"
         as="ul"
       >
         {genres?.map(genre => {
@@ -47,11 +48,11 @@ const GenresFilter = ({ active, onClick }) => {
 export default GenresFilter;
 
 GenresFilter.propTypes = {
-  // active: PropTypes.array({
-  //   genre: PropTypes.object({
-  //     id: PropTypes.string,
-  //     name: PropTypes.string,
-  //   }),
-  // }).isRequired,
+  active: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ).isRequired,
   onClick: PropTypes.func.isRequired,
 };

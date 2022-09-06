@@ -46,20 +46,30 @@ export const FullPoster = styled.img`
 `;
 
 export const TrailerBtn = styled.a`
+  display: inline-block;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: ${p => p.theme.space[3]}px;
   width: 100px;
-  text-decoration: none;
   color: ${p => p.theme.colors.text};
-  border-radius: ${p => p.theme.radii.normal};
   font-weight: ${p => p.theme.fontWeights.bold};
   background-color: ${p => p.theme.colors.bgBtn};
+  border: ${p => p.theme.borders.normal} transparent;
+  border-radius: ${p => p.theme.radii.normal};
 
   :hover,
   :focus-visible {
     color: ${p => p.theme.colors.black};
     background-color: ${p => p.theme.colors.hoverBtn};
   }
+`;
+
+export const GenresItem = styled.span`
+  margin-right: ${p => p.theme.space[3]}px;
+  padding: ${p => p.theme.space[2]}px ${p => p.theme.space[4]}px;
+  font-size: ${p => p.theme.fontSizes.s};
+  color: ${p => p.theme.colors.text};
+  border: 2px solid ${p => p.theme.colors.hoverBtn};
+  border-radius: 20px;
 `;

@@ -6,7 +6,6 @@ export const Title = styled.h1`
   font-size: ${p => p.theme.fontSizes.l};
   text-transform: capitalize;
   color: ${p => p.theme.colors.white};
-  /* text-align: center; */
   writing-mode: vertical-rl;
   text-orientation: upright;
 `;
@@ -17,7 +16,6 @@ export const Heading = styled.h2`
   font-size: ${p => p.theme.fontSizes.l};
   text-transform: capitalize;
   color: ${p => p.theme.colors.white};
-  /* text-align: center; */
 `;
 
 export const SubHeading = styled.h3`

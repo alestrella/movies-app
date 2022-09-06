@@ -12,6 +12,7 @@ const MovieList = ({ movies }) => {
     <Box
       display="grid"
       gridGap={20}
+      justifyContent="center"
       gridTemplateColumns="repeat(auto-fit, 200px)"
       as="ul"
     >

@@ -21,6 +21,7 @@ import {
   AddLink,
   FullPoster,
   TrailerBtn,
+  GenresItem,
 } from './MovieDetails.styled';
 import {
   MdArrowBack,
@@ -80,14 +81,16 @@ const MovieDetails = () => {
                   {title} •<Span> {release_date.substr(0, 4)}</Span>
                 </Heading>
 
-                <TrailerBtn
-                  href={trailer}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                >
-                  <MdOutlineSmartDisplay />
-                  Trailer
-                </TrailerBtn>
+                {trailer && (
+                  <TrailerBtn
+                    href={trailer}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >
+                    <MdOutlineSmartDisplay />
+                    Trailer
+                  </TrailerBtn>
+                )}
 
                 <Box py={4}>
                   <Text>
@@ -100,11 +103,11 @@ const MovieDetails = () => {
                 </Box>
                 <Box py={4} borderTop="normal" borderColor="bgBtn">
                   <SubHeading>Genres</SubHeading>
-                  <Text>
+                  <Box>
                     {genres.map(({ id, name }) => (
-                      <span key={id}>{name} </span>
+                      <GenresItem key={id}>{name} </GenresItem>
                     ))}
-                  </Text>
+                  </Box>
                 </Box>
               </Box>
             </Box>

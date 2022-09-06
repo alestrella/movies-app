@@ -17,8 +17,6 @@ const Home = () => {
     const genresId = selectedGenre.map(({ id }) => id.toString());
 
     fetchMovieByGenre(genresId).then(setVisibleMovies);
-
-    console.log('selectedGenre :>> ', selectedGenre);
   }, [selectedGenre]);
 
   const handleSelectedGenre = genre => {
@@ -38,7 +36,7 @@ const Home = () => {
 
   return (
     <main>
-      <Box display="grid" gridTemplateColumns="80px 1fr" as="section">
+      <Box display="grid" gridTemplateColumns="100px 1fr" as="section">
         <Title>Trending movies</Title>
         <Box display="grid">
           <GenresFilter active={selectedGenre} onClick={handleSelectedGenre} />
