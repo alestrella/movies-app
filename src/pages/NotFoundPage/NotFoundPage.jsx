@@ -1,7 +1,7 @@
 import Box from 'components/Box';
 import { Title, SubHeading, Text } from 'components/Text/Text.styled';
 import { Button, Pic } from './NotFoundPage.styled';
-import pic from '../../images/notFoundPic.png';
+import pic from '../../assets/notFoundPic.png';
 
 const NotFoundPage = () => {
   return (

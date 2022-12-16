@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { IMG_URL } from 'services/moviesApi';
 import Box from 'components/Box';
 import { CardLink, CardTitle, Poster, Vote } from './MovieList.styled';
-import noPoster from '../../images/noposter.jpg';
+import noPoster from '../../assets/noposter.jpg';
 
 const MovieList = ({ movies }) => {
   const location = useLocation();

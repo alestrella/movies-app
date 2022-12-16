@@ -12,10 +12,7 @@ export const Footer = () => {
         </Box>
         <Text>
           It was made with 💛 by{' '}
-          <GitLink
-            to={{ pathname: 'https://github.com/alestrella' }}
-            target="_blank"
-          >
+          <GitLink href="https://github.com/alestrella" target="_blank">
             Alestrella
           </GitLink>
         </Text>

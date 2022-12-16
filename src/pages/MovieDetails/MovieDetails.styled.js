@@ -45,8 +45,7 @@ export const FullPoster = styled.img`
   border-radius: ${p => p.theme.radii.normal};
 `;
 
-export const TrailerBtn = styled.a`
-  display: inline-block;
+export const TrailerBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +65,6 @@ export const TrailerBtn = styled.a`
 `;
 
 export const GenresItem = styled.span`
-  margin-right: ${p => p.theme.space[3]}px;
   padding: ${p => p.theme.space[2]}px ${p => p.theme.space[4]}px;
   font-size: ${p => p.theme.fontSizes.s};
   color: ${p => p.theme.colors.text};

@@ -29,10 +29,15 @@ import {
   MdOutlineRateReview,
   MdOutlineSmartDisplay,
 } from 'react-icons/md';
+import { Loader } from 'components/Loader/Loader';
+import { ModalTrailer } from 'components/ModalTrailer/ModatTrailer';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState();
   const [trailer, setTrailer] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+
+  const toggleModal = () => setOpenModal(state => !state);
 
   const { movieId } = useParams();
   const location = useLocation();
@@ -43,7 +48,7 @@ const MovieDetails = () => {
     fetchMovieVideo(movieId).then(videos =>
       videos.forEach(v => {
         if (v.type === 'Trailer') {
-          const trailerLink = `https://www.youtube.com/watch?v=${v.key}`;
+          const trailerLink = `https://www.youtube.com/embed/${v.key}`;
           setTrailer(trailerLink);
         }
       })
@@ -71,7 +76,7 @@ const MovieDetails = () => {
               type="button"
               onClick={() => navigate(location?.state?.from ?? '/')}
             >
-              <MdArrowBack />
+              <MdArrowBack style={{ marginRight: 8 }} />
               Go back
             </BackBtn>
             <Box display="flex" py={4}>
@@ -82,14 +87,13 @@ const MovieDetails = () => {
                 </Heading>
 
                 {trailer && (
-                  <TrailerBtn
-                    href={trailer}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                  >
-                    <MdOutlineSmartDisplay />
+                  <TrailerBtn onClick={toggleModal}>
+                    <MdOutlineSmartDisplay style={{ marginRight: 8 }} />
                     Trailer
                   </TrailerBtn>
+                )}
+                {openModal && (
+                  <ModalTrailer onClose={toggleModal} video={trailer} />
                 )}
 
                 <Box py={4}>
@@ -103,7 +107,7 @@ const MovieDetails = () => {
                 </Box>
                 <Box py={4} borderTop="normal" borderColor="bgBtn">
                   <SubHeading>Genres</SubHeading>
-                  <Box>
+                  <Box display="flex" flexWrap="wrap" gridGap={3}>
                     {genres.map(({ id, name }) => (
                       <GenresItem key={id}>{name} </GenresItem>
                     ))}
@@ -121,17 +125,17 @@ const MovieDetails = () => {
               <Box display="flex" as="ul">
                 <Box mr={4} as="li">
                   <AddLink to="cast" state={{ from: location.state?.from }}>
-                    <MdPeopleAlt /> Cast
+                    <MdPeopleAlt style={{ marginRight: 8 }} /> Cast
                   </AddLink>
                 </Box>
                 <Box as="li">
                   <AddLink to="reviews" state={{ from: location.state?.from }}>
-                    <MdOutlineRateReview /> Reviews
+                    <MdOutlineRateReview style={{ marginRight: 8 }} /> Reviews
                   </AddLink>
                 </Box>
               </Box>
             </Box>
-            <Suspense fallback={<SubHeading>Loading...</SubHeading>}>
+            <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
           </Box>

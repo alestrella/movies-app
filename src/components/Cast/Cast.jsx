@@ -3,7 +3,7 @@ import { Author, Text } from 'components/Text/Text.styled';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast, IMG_URL } from 'services/moviesApi';
-import noAvatar from '../../images/noavatar.jpg';
+import noAvatar from '../../assets/noavatar.jpg';
 
 const Cast = () => {
   const { movieId } = useParams();

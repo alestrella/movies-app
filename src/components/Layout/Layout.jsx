@@ -3,7 +3,7 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { Footer } from 'components/Footer/Footer';
 import Box from 'components/Box';
 import { Suspense } from 'react';
-import { SubHeading } from 'components/Text/Text.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
@@ -18,7 +18,7 @@ export const Layout = () => {
       gridTemplateRows="auto 1fr auto"
     >
       <AppBar />
-      <Suspense fallback={<SubHeading>Loading...</SubHeading>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
       <Footer />

@@ -38,6 +38,7 @@ export const theme = {
   radii: {
     none: '0',
     normal: '4px',
+    middle: '20px',
     round: '50%',
   },
 };

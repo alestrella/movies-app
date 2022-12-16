@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
@@ -9,7 +8,7 @@ export const StyledFooter = styled.footer`
   border-top: ${p => p.theme.borders.normal} ${p => p.theme.colors.hoverBtn}; ;
 `;
 
-export const GitLink = styled(Link)`
+export const GitLink = styled.a`
   position: relative;
   display: inline-block;
   text-decoration: none;
