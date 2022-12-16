@@ -31,6 +31,7 @@ import {
 } from 'react-icons/md';
 import { Loader } from 'components/Loader/Loader';
 import { ModalTrailer } from 'components/ModalTrailer/ModatTrailer';
+import noPoster from '../../assets/noposter.jpg';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState();
@@ -62,8 +63,14 @@ const MovieDetails = () => {
     return <Navigate to="/not-found" replace={true} />;
   }
 
-  const { title, poster_path, release_date, vote_average, overview, genres } =
-    movie;
+  const {
+    title,
+    poster_path,
+    release_date: relDate,
+    vote_average,
+    overview,
+    genres,
+  } = movie;
 
   return (
     <main>
@@ -80,10 +87,14 @@ const MovieDetails = () => {
               Go back
             </BackBtn>
             <Box display="flex" py={4}>
-              <FullPoster src={`${IMG_URL}${poster_path}`} alt="Movie poster" />
+              <FullPoster
+                src={poster_path ? `${IMG_URL}${poster_path}` : `${noPoster}`}
+                alt="Movie poster"
+              />
               <Box px={6}>
                 <Heading>
-                  {title} •<Span> {release_date.substr(0, 4)}</Span>
+                  {title} •
+                  <Span> {relDate ? relDate.substr(0, 4) : 'No date'}</Span>
                 </Heading>
 
                 {trailer && (

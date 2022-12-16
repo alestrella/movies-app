@@ -33,7 +33,8 @@ const MovieList = ({ movies }) => {
                 />
                 <Box display="grid" gridTemplateColumns="1fr 20%">
                   <CardTitle>
-                    {title} • <span>{relDate.substr(0, 4)}</span>
+                    {title} •{' '}
+                    <span>{relDate ? relDate.substr(0, 4) : 'No date'}</span>
                   </CardTitle>
                   <Vote>{vote.toFixed(1)}</Vote>
                 </Box>
@@ -54,7 +55,7 @@ MovieList.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       poster_path: PropTypes.string,
-      release_date: PropTypes.string.isRequired,
+      release_date: PropTypes.string,
     }).isRequired
   ).isRequired,
 };

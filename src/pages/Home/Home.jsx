@@ -3,10 +3,10 @@ import { fetchTrendingMovies, fetchMovieByGenre } from 'services/moviesApi';
 import Box from 'components/Box';
 import GenresFilter from 'components/GenresFilter/GenresFilter';
 import MovieList from 'components/MovieList/MovieList';
-import { Title } from 'components/Text/Text.styled';
+import { Text, Title } from 'components/Text/Text.styled';
 
 const Home = () => {
-  const [visibleMovies, setVisibleMovies] = useState(null);
+  const [visibleMovies, setVisibleMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,12 @@ const Home = () => {
         <Title>Trending movies</Title>
         <Box display="grid">
           <GenresFilter active={selectedGenre} onClick={handleSelectedGenre} />
-          {visibleMovies && <MovieList movies={visibleMovies} />}
+          {visibleMovies.length > 0 && <MovieList movies={visibleMovies} />}
+          {visibleMovies.length <= 0 && (
+            <Box textAlign="center">
+              <Text>Sorry, there are no images matching. Please try again</Text>
+            </Box>
+          )}
         </Box>
       </Box>
     </main>

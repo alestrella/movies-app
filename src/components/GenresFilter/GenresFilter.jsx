@@ -50,7 +50,7 @@ export default GenresFilter;
 GenresFilter.propTypes = {
   active: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
       name: PropTypes.string,
     })
   ).isRequired,
